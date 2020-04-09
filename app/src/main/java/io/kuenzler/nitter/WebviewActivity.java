@@ -125,6 +125,20 @@ public class WebviewActivity extends AppCompatActivity implements NavigationView
 
         mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         mWebView.setScrollbarFadingEnabled(true);
+        mWebView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View arg0) {
+                String url = mWebView.getHitTestResult().getExtra();
+                if (url != null) {
+                    Intent i = new Intent(android.content.Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(url));
+                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(i);
+                    return true;
+                }
+                return false;
+            }
+        });
 
         mWebView.setWebChromeClient(new WebChromeClient() {
 
@@ -186,7 +200,7 @@ public class WebviewActivity extends AppCompatActivity implements NavigationView
 
         if (savedInstanceState == null) {
             //mWebView.loadUrl("https://google.de");
-            mWebView.loadUrl("https://nitter.net/");
+            mWebView.loadUrl("https://nitter.net/blaugerber/lists/everyone");
         } else {
             Log.d(DEBUG_TAG, "savedInstanceState is present");
         }
@@ -355,11 +369,14 @@ public class WebviewActivity extends AppCompatActivity implements NavigationView
             drawer.closeDrawer(GravityCompat.START);
         } else if (System.currentTimeMillis() - mLastBackClick < 1100) {
             finishAffinity();
-        } else {
-            mWebView.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ESCAPE));
-            showToast("Click back again to close");
-            mLastBackClick = System.currentTimeMillis();
+        } else if ( mWebView.canGoBack()) {
+//            mWebView.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ESCAPE));
+            mWebView.goBack();
         }
+//            showToast("Click back again to close");
+//            mLastBackClick = System.currentTimeMillis();
+
+
     }
 
 
@@ -368,15 +385,15 @@ public class WebviewActivity extends AppCompatActivity implements NavigationView
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         if (id == R.id.one) {
-            mWebView.loadUrl("https://nitter.net/redacted/lists/everyone");
+            mWebView.loadUrl("https://nitter.net/blaugerber/lists/everyone");
         } else if (id == R.id.two) {
-            mWebView.loadUrl("https://nitter.net/redacted/lists/everyone");
+            mWebView.loadUrl("https://nitter.net/grininger_lab/lists/everyone");
         } else if (id == R.id.three) {
             mWebView.loadUrl("https://nitter.net/");
         } else if (id == R.id.four) {
-            mWebView.loadUrl("https://nitter.13ad.de/redacted/lists/everyone");
+            mWebView.loadUrl("https://nitter.13ad.de/blaugerber/lists/everyone");
         } else if (id == R.id.five) {
-            mWebView.loadUrl("https://nitter.13ad.de/readacted/lists/everyone");
+            mWebView.loadUrl("https://nitter.13ad.de/grininger_lab/lists/everyone");
         } else if (id == R.id.six) {
             mWebView.loadUrl("https://bibliogram.snopyta.org/u/therock");
         } else if (id == R.id.seven) {

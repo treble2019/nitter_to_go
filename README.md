@@ -8,10 +8,6 @@ Mobile Client for WhatsappWeb
 This app lets you access WhatsApp Web on your mobile phone or tablet.
 It has full support for sending audio and pictures / video.
 
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
-    alt="Get it on F-Droid"
-    height="80">](https://f-droid.org/packages/nitter)
-    
 You can also get the latest version from the releases tab. Please note, that the github and fdroid version are not compatible, as they are signed diffrently
 
 -free and without ads-
