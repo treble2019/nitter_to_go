@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/one"
+            android:icon="@android:drawable/ic_btn_speak_now"
+            android:title="blau" />
+        <item
+            android:id="@+id/two"
+            android:icon="@android:drawable/ic_dialog_info"
+            android:title="labg" />
+        <item
+            android:id="@+id/three"
+            android:icon="@android:drawable/ic_media_ff"
+            android:title="nitter" />
+        <item
+            android:id="@+id/four"
+            android:icon="@android:drawable/ic_menu_preferences"
+            android:title="blau" />
+        <item
+            android:id="@+id/five"
+            android:icon="@android:drawable/ic_menu_save"
+            android:title="labg" />
+        <item
+            android:id="@+id/six"
+            android:icon="@android:drawable/ic_popup_reminder"
+            android:title="therock" />
+        <item
+            android:id="@+id/seven"
+            android:icon="@android:drawable/ic_popup_reminder"
+            android:title="therock" />
+        <item
+            android:id="@+id/eight"
+            android:icon="@android:drawable/ic_popup_reminder"
+            android:title="therock" />
+        <item
+            android:id="@+id/nine"
+            android:icon="@android:drawable/ic_popup_reminder"
+            android:title="randomuser" />
+        <item
+            android:id="@+id/ten"
+            android:icon="@android:drawable/ic_popup_reminder"
+            android:title="generatedphotos" />
+
+    </group>
+
+
+
+</menu>
